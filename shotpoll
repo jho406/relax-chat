@@ -1,0 +1,1 @@
+setInterval(function(){Relax.visit('/posts?_relax_filter=posts', {async: true, pushState: false})},500)

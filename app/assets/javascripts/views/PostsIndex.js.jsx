@@ -28,7 +28,9 @@ App.Views.PostsIndex = function(json) {
         </p>
 
         <ul className="media-list">
-          { posts }
+          <React.addons.CSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            { posts }
+          </React.addons.CSSTransitionGroup>
         </ul>
 
         <div className='chat-form'>
