@@ -5,7 +5,7 @@
 #
 json.posts_path posts_path
 json.new_post_path new_post_path
-json.metrics do
+json.metrics defer: true do
   sleep 5
   json.num_of_views 30
 end
