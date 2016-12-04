@@ -6,10 +6,6 @@ class PostsController < ApplicationController
     render :index
   end
 
-  def new
-    render :new
-  end
-
   def create
     Post.create(body: post_params[:body])
 
