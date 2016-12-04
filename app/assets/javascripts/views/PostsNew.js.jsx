@@ -15,7 +15,7 @@ App.Views.PostsNew = function(json) {
         </div>
 
         <div className='chat-form'>
-          <form className="form" method='post' action={json.posts_path}>
+          <form className="form" method='post' action={json.posts_path} data-rx-remote>
             <input name="authenticity_token" type="hidden" value="0cLc4ZfZc39o5LwvYzE2SOLC6T2bz00KI/kd15DTsVA1kM5fiDNbBTqnlZEFT58x5QHHID/D3y6bhJn+q8Iavg==" />
 
             <div className="form-group">
