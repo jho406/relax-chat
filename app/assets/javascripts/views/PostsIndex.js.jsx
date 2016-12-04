@@ -1,11 +1,7 @@
 App.Views.PostsIndex = function(json) {
     var posts = json.posts.map(function(post) {
       return (
-        <li className="media">
-          <div className="media-body">
-            <p>{post.body}</p>
-          </div>
-        </li>
+        <App.Components.Post post={post} key={post.id}/>
       );
     });
 
@@ -27,6 +23,7 @@ App.Views.PostsIndex = function(json) {
 
         <p>
           <a href={json.new_post_path}> new post </a>
+          <a href={json.posts_path} data-rx-remote> index </a>
         </p>
 
         <ul className="media-list">
