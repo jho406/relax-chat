@@ -6,7 +6,7 @@
 json.posts_path posts_path
 json.new_post_path new_post_path
 json.posts do
-  json.array! @posts do |post|
+  json.array! @posts, cache: ->(d){ ['post', d.id] } do |post|
     json.id post.id
     json.body post.body
   end
