@@ -4,9 +4,22 @@
     <title>RelaxChat</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application'  %>
+    <script type="text/javascript">
+    document.addEventListener('relax:load', function(event){
+      var props = {
+        view: event.data.view,
+        data:  event.data.data
+      }
+      ReactDOM.render(React.createElement(window.App.Components.View, props), document.getElementById('app'));
+    });
+
+    $(function(){ <%= relax_snippet %> });
+
+  </script>
+</head>
+<div id='app'></div>
 
   <body>
     <%= yield %>

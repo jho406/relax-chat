@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require relax
 //= require react
+//= require boot
+//= require_tree ./layouts
+//= require_tree ./views
+//= require_tree ./components
 //= require_tree .
