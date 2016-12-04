@@ -1,10 +1,11 @@
 App.Views.PostsIndex = function(json) {
-    var posts = json.posts.map(function(post) {
-      return (
-        <App.Components.Post post={post} key={post.id}/>
-      );
-    });
+  var posts = json.posts.map(function(post) {
+    return (
+      <App.Components.Post post={post} key={post.id}/>
+    );
+  });
 
+  var metrics = json.metrics || {};
 
   return (
     <div className='row'>
@@ -16,7 +17,7 @@ App.Views.PostsIndex = function(json) {
             <h3 className="panel-title">Dashboard</h3>
           </div>
           <div className="panel-body">
-           Some expensive operation
+           Some expensive operation { metrics.num_of_views}
           </div>
         </div>
 

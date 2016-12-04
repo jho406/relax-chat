@@ -5,6 +5,11 @@
 #
 json.posts_path posts_path
 json.new_post_path new_post_path
+json.metrics do
+  sleep 5
+  json.num_of_views 30
+end
+
 json.posts do
   json.array! @posts, cache: ->(d){ ['post', d.id] } do |post|
     json.id post.id
