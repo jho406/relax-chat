@@ -1,0 +1,12 @@
+# Example:
+#
+# json.notice notice
+#
+#
+json.new_post_path new_post_path
+json.posts do
+  json.array! @posts do |post|
+    json.id post.id
+    json.body post.body
+  end
+end
