@@ -11,8 +11,5 @@ json.metrics defer: true do
 end
 
 json.posts do
-  json.array! @posts, cache: ->(d){ ['post', d.id] } do |post|
-    json.id post.id
-    json.body post.body
-  end
+  json.array! @posts, cache: ->(d){ ['post', d.id] }, partial: 'post', as: 'post'
 end
