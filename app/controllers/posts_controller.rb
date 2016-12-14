@@ -7,9 +7,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(body: post_params[:body])
-
-    redirect_to posts_path
+    @post = Post.create(body: post_params[:body])
+    if relax_silient?
+      GraftPostJob.perform_later @post.id
+      head 204
+    else
+      redirect_to posts_path
+    end
   end
 
   def post_params
