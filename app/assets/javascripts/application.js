@@ -19,3 +19,17 @@
 //= require_tree ./views
 //= require_tree ./components
 //= require_tree .
+//= require message-bus
+//
+
+MessageBus.start(); // call once at startup
+
+// how often do you want the callback to fire in ms
+MessageBus.callbackInterval = 500;
+MessageBus.subscribe("/channel", function(data){
+  console.log(data);
+  graft_type = data[0];
+  keyPath = data[1];
+  node = new Function("'use strict'; return " + data[2] )();
+  Relax.graftByKeypath(keyPath, node.data, {type: graft_type});
+});
